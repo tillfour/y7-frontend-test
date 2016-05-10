@@ -190,23 +190,6 @@ header.main-header {
     img {vertical-align:middle;}
   }
 
-  // .header-left nav ul li {
-  //   @media screen and (max-width: 800px){
-  //     position: absolute;
-  //     top: 480px;
-  //     // // margin: 0 90px 0 200px;
-  //     // text-align: center;
-  //     // font-size: 0;
-  //     // letter-spacing: 4px;
-  //     // z-index: 11;
-  //     // opacity: 0;
-  //     // -webkit-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
-  //     // -moz-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
-  //     // -o-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
-  //     // transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
-  //   }
-  // }
-
   .header-right {
     background: lighten($rhino, 65%);
     border-left: 3px solid lighten($rhino, 60%);
