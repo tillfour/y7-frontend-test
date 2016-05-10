@@ -4,6 +4,7 @@
 
 @import "variables/global";
 @import "variables/motionui";
+@import "variables/buttons";
 
 
 
@@ -65,36 +66,254 @@
 // @include foundation-float-classes;
 @include foundation-flex-classes;
 
+// -----------------------------------------------------------------------------
+// Add Your Code/Imports Here
+// -----------------------------------------------------------------------------
+// - - - - - - - Colors - - - - - - - //
+$black: #0B0B0B;
+$white : #FFFFFF;
+$red : #F88D06;
+$rhino : #31336A;
+$yellow : #FEC500;
+$link-highlight: #FF4500;
 
+ul {margin-left: 0;}
+ul li {list-style: none;}
 
-// =============================================================================
-// DELETE THIS SECTION
+// Link color Override Foundation
+a,
+a:visited {
+  color: $black;
+}
+.active {color: $yellow;}
+p {
+  font-size: 1.25rem;
+}
+// - - - - - - - Buttons & CTA's - - - - - - - //
+.btn {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 1.2rem 3rem;
+  color: $white;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
 
-.readme {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: rem-calc(20);
-  font-weight: 200;
-  margin-top: rem-calc(50);
-  @include flex-grid-row;
-  @include flex-align($x: center);
+a.cta {
+  background: $yellow;
+  color: $link-highlight;
+  &:hover {
+    color: $red;
+  }
+}
+
+// - - - - - - - - - - - -
+// Helper Classes & mixins
+// - - - - - - - - - - - -
+// clearfix
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+// Screen reader text
+.srt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.wrapper {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+/* - - - - - - Header - - - - - - */
+header.main-header {
+  @include clearfix;
+  background: $white;
+  border-bottom: 1.2px solid $rhino;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+  [class^="header-"] {
+    .wrapper {overflow: hidden;}
+  }
+  .header-left {
+    float: left;
+    position: relative;
+    width: 75%;
+    .logo {
+      font-size: 1.35rem;
+      float: left;
+      color: $black;
+      line-height: 2rem;
+      margin: 0;
+    }
+    nav {
+      float: right;
+      padding-top: 1em;
+        li {
+          display: none;
+          @media screen and (min-width: 820px) {
+            display: block;
+          }
+        }
+
+      a {
+        font-weight: 600;
+        margin-left: 2rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .header-left {
+    nav ul {
+      @media screen and (min-width: 820px) {
+        display: flex;
+      }
+    }
+    .wrapper {
+      padding: 2em 0;
+    }
+    img {vertical-align:middle;}
+  }
+
+  // .header-left nav ul li {
+  //   @media screen and (max-width: 800px){
+  //     position: absolute;
+  //     top: 480px;
+  //     // // margin: 0 90px 0 200px;
+  //     // text-align: center;
+  //     // font-size: 0;
+  //     // letter-spacing: 4px;
+  //     // z-index: 11;
+  //     // opacity: 0;
+  //     // -webkit-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
+  //     // -moz-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
+  //     // -o-transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
+  //     // transition: top 200ms ease 1200ms,opacity 200ms ease 850ms;
+  //   }
+  // }
+
+  .header-right {
+    background: lighten($rhino, 65%);
+    border-left: 3px solid lighten($rhino, 60%);
+    float: right;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25%;
+    p {margin-bottom: 0;}
+    a, a:visited {
+      color: lighten($rhino, 40%);
+    }
+    .login {
+      padding-right: 10px;
+    }
+  }
+
+  .header-right .wrapper {
+    padding: 2.5em 0;
+  }
+
+.header-left nav{
+  @media screen and (min-widht: 300px) and (max-width: 800px){
+   position: relative;
+   top: 2.55rem;
+  }
+
+}
+
+#menu-toggle {
+  position: absolute;
+  right: 20px;
+  top: 3em;
+  @media screen and (min-width: 820px) {
+    display: none;
+  }
+}
+.nav-open {
+  position: relative;
+  top: 2em;
+}
+/* - - - - - - Banner - - - - - - */
+.carousel-banner {
+  background:
+  linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+  url('../images/chicago-690364_1280.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  color: $white;
+  padding: 4rem 0 1rem 0;
+  text-align: center;
+
   .content {
-    width: 100%;
-    padding: rem-calc(40);
-    @include transition;
-    @include breakpoint(medium) {
-      width: rem-calc(400);
-      padding: rem-calc(60);
-      border-radius: rem-calc(6);
-      box-shadow: 0 rem-calc(10) rem-calc(50) rgba(38, 50, 56, 0.10);
+    padding: 2rem 0;
+    width: 700px;
+    .title {
+      font-size: 3.5rem;
+    }
+    p {padding-top: 1em;}
+  }
+  .btn-wrapper {
+    margin: 3rem 0;
+    text-align: center;
+  }
+}
+
+.carousle-banner {
+  .wrapper.content {
+    @media screen and (min-width: 800px) {
+      width: 500px;
+      padding: 6rem;
+    }
+  }
+}
+.divider {
+  border-bottom: 2px solid $yellow;
+  max-width: 150px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+/* - - - - - - Article/s - - - - - - */
+.main-content {
+  padding: 5% 0;
+  article {
+    @media screen and (min-width: 800px) {
+      column-count: 2;
     }
   }
 }
 
-// DELETE THIS SECTION
-// =============================================================================
+/* - - - - - - Section/s - - - - - - */
 
-
-
-// -----------------------------------------------------------------------------
-// Add Your Code/Imports Here
-// -----------------------------------------------------------------------------
+/* - - - - - - Footer - - - - - - */
+footer {
+  background: lighten($rhino, 65%);
+  border: 3px solid lighten($rhino, 60%);
+  padding: 5% 0;
+  text-align: center;
+  p {
+    color: lighten($rhino, 25%);
+    font-size: 0.75rem;
+    margin: 0;
+  }
+}
